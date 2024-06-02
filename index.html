@@ -84,8 +84,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>About</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Sobre Mi</h2>
         </div>
 
         <div class="row">
@@ -194,8 +193,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Resume</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Resumen</h2>
+          <p>Un poco mas sobre mi:</p>
         </div>
 
         <div class="row">
@@ -377,7 +376,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
+          <h2>Servicios</h2>
           <p>Como profesional, esto es lo que te ofrezco:</p>
         </div>
 
@@ -459,31 +458,31 @@
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
+                <div class="form-group col-md-12">
+                  <label for="name">Tu Nombre</label>
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
-                <div class="form-group col-md-6">
+                <!-- <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email" required>
-                </div>
+                </div> -->
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
+                <label for="name">Asunto</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <label for="name">Mensaje</label>
+                <textarea class="form-control" name="message" id ="message_1" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="button" class="btn btn-primary" onclick="enviarMensaje()">Enviar Mensaje<i class="bx bxl-whatsapp"></i></button></div>
             </form>
-          </div>
+          </div>  
 
         </div>
 
@@ -511,7 +510,36 @@
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+<script>
+   function enviarMensaje ()
+     {
+        let Nombre
+        let Mensaje
+        let Asunto
 
+        Nombre = document.getElementById("name").value
+        Asunto = document.getElementById("subject").value
+        Mensaje = document.getElementById("message_1").value
+
+        if (Nombre.length ==0) {
+          alert("Ingrese el nombre")
+        }else if (Asunto.length ==0) {
+          alert("Ingrese el asunto")
+
+        } else if(Mensaje.length==0) {
+          alert("Ingrese el asunto")
+
+        }else {
+          
+        let url = "https://wa.me/+51986394402?text=" + 
+        "Hola!%20Me%20llamo%20" + encodeURIComponent(Nombre) + 
+        "%20Me%20comunico%20por:%20" + encodeURIComponent(Asunto) + 
+        "%20-%20" + encodeURIComponent(Mensaje);
+        window.location.replace(url)
+
+        }
+     }
+</script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
